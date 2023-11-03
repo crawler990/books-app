@@ -1,0 +1,32 @@
+.buttons {
+    display: flex;
+    gap: 100px;
+    margin: 50px auto;
+    
+    .button {
+      width: 200px;
+    }
+}
+
+.header {
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+}
+
+.line{
+    display: block;
+    margin-bottom: 100px;
+    border-bottom: solid 2px #d3d3d3;
+    overflow: auto;
+}
+
+.book-list{
+    width: 100%;
+}
+
+.empty{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

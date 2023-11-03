@@ -1,0 +1,17 @@
+@import '@angular/material/theming';
+@include mat-core();
+$primary: mat-palette($mat-grey);
+$accent:  mat-palette($mat-light-blue, 600, 300, 600);
+$warn:    mat-palette($mat-deep-orange, 300, 500, 800);
+
+*{
+    font-family: sans-serif;
+}
+
+.mat-typography h1 {
+    font-size: 30px
+}
+
+.mat-mdc-dialog-content{
+    width: 100%;
+}

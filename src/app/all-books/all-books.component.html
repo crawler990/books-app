@@ -1,0 +1,30 @@
+<div class="header">
+    <h1>All My Books</h1>
+    <div class="buttons">
+        <button mat-flat-button color="primary" class="button" (click)="viewLists()">View My Lists</button>
+    </div>
+</div>
+
+<div *ngIf="!dataSource.length; else allBooks" class="empty">
+  <h3>No books available, create a list and add a book to the list</h3>
+  <button mat-flat-button color="accent" class="button" (click)="addList()">Add New List</button>
+</div>
+
+<ng-template #allBooks class="table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+            <th mat-header-cell *matHeaderCellDef>
+              <h2>{{column.header}}</h2>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              {{column.cell(row)}}
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</ng-template>
+
+
+

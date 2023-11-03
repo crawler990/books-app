@@ -1,0 +1,48 @@
+<div class="header">
+  <h1>My Favourite Lists</h1>
+  <button mat-flat-button color="accent" class="button" (click)="addList()">Add New List</button>
+  <button mat-flat-button color="accent" class="button" [routerLink]="['']">View All Books</button>
+</div>
+
+<div *ngFor="let list of bookLists; index as listIndex">
+  <h3 class="header">{{list.title}}</h3>
+  <div class="table">
+    <table mat-table [dataSource]="list.books" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="bookTitle">
+        <th mat-header-cell *matHeaderCellDef>Book Title</th>
+        <td mat-cell *matCellDef="let book">{{book.bookTitle}}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Year</th>
+        <td mat-cell *matCellDef="let book">{{book.year}}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="authorName">
+        <th mat-header-cell *matHeaderCellDef>Author Name</th>
+        <td mat-cell *matCellDef="let book">{{book.authorName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let book, let bookIndex = index">
+          <button mat-flat-button color="warn" class="button" (click)="removeBook(listIndex, bookIndex)">Delete</button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="buttons">
+    <button mat-flat-button color="accent" class="button" (click)="addBook(listIndex)">Add book</button>
+    <button mat-flat-button color="warn" class="button" (click)="removeList(listIndex)">Remove List</button>
+  </div>
+
+  <span class="line"></span>
+</div>
+
+<div *ngIf="!bookLists.length" class="empty">
+  <h3>No lists available, add new list.</h3>
+</div>

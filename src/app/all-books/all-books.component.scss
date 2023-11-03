@@ -1,0 +1,20 @@
+.button{
+    width: 200px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.table{
+    margin: 50px 0;
+}
+
+.empty{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
