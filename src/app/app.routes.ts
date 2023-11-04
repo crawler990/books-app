@@ -11,6 +11,5 @@ export const routes: Routes = [
     {
         path: 'my-lists', 
         component: BookListComponent
-        // loadComponent: () => import('./book-list/book-list.component').then(x => x.BookListComponent)
     },
 ];
