@@ -5,8 +5,8 @@ import { MatTableModule } from '@angular/material/table';
 import { Router, RouterModule } from '@angular/router';
 import { Book } from '../models/models';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { bookLists } from '../book-list/book-list.component';
 import { Dialog } from '../shared/dialog.component';
+import { bookLists } from '../shared/books';
 
 
 @Component({
