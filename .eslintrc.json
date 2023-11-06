@@ -16,7 +16,9 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "no-trailing-spaces":"error",
+        "space-before-blocks": ["error", "never"]
     },
     "root": true
 }

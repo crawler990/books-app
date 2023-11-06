@@ -29,7 +29,7 @@ import { bookLists } from '../shared/books';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss']
 })
-export class BookListComponent {
+export class BookListComponent{
   @ViewChildren(MatTable) tables!: QueryList<MatTable<BookList>>;
 
   constructor(public dialog: MatDialog){}
@@ -40,39 +40,40 @@ export class BookListComponent {
 
   displayedColumns: string[] = ['bookTitle', 'year', 'authorName', 'delete'];
 
-  addList() {
+
+  public addList(){
     const dialogRef = this.dialog.open(Dialog, {
       data: {listName: '', isList: true},
       width: '280px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       this.bookLists.push({title: result.listName, books: []});
-    }); 
+    });
   }
 
-  removeList(listIndex: number){
+  public removeList(listIndex: number){
     this.bookLists.splice(listIndex, 1);
   }
 
-  addBook(listIndex: number){
+  public addBook(listIndex: number){
     const currentList = this.bookLists[listIndex];
     const tableToUpdate = this.tables.toArray()[listIndex];
-    
+
     const dialogRef = this.dialog.open(Dialog, {
       data: {listName: currentList.title, bookTitle: '', year: '', authorName: '', isList: false},
       width: '600px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       delete result.listName;
       this.bookLists[listIndex].books.push(result);
 
       tableToUpdate.renderRows();
-    });   
+    });
   }
 
-  removeBook(listIndex: number, bookIndex: number){
+  public removeBook(listIndex: number, bookIndex: number){
     this.bookLists[listIndex].books.splice(bookIndex, 1);
     const tableToUpdate = this.tables.toArray()[listIndex];
     tableToUpdate.renderRows();

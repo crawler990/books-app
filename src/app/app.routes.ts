@@ -5,11 +5,11 @@ import { BookListComponent } from './book-list/book-list.component';
 export const routes: Routes = [
     {path: '', pathMatch:'full', redirectTo: 'books'},
     {
-        path: 'books', 
+        path: 'books',
         component: AllBooksComponent,
-    }, 
+    },
     {
-        path: 'my-lists', 
+        path: 'my-lists',
         component: BookListComponent
     },
 ];

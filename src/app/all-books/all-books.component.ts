@@ -19,7 +19,7 @@ import { bookLists } from '../shared/books';
 export class AllBooksComponent implements OnInit{
   constructor(private router: Router, public dialog: MatDialog){}
 
-  ngOnInit(): void {
+  ngOnInit(): void{
       bookLists.map(list => {
         this.dataSource.push(...list.books);
       });
@@ -44,22 +44,22 @@ export class AllBooksComponent implements OnInit{
       cell: (book: Book) => `${book.authorName}`,
     },
   ];
-  
+
   displayedColumns = this.columns.map(c => c.columnDef);
 
-  viewLists(){
+  public viewLists(){
     this.router.navigateByUrl('my-lists');
   }
 
-  addList() {
+  public addList(){
     const dialogRef = this.dialog.open(Dialog, {
       data: {listName: '', isList: true},
       width: '300px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result.listName);
       bookLists.push({title: result.listName, books: []});
-    }); 
+    });
   }
 }

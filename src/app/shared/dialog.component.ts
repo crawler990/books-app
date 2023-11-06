@@ -12,7 +12,7 @@ import { DialogData } from "../models/models";
     template: `
     <div *ngIf="data.isList; else bookForm">
       <h1 mat-dialog-title>Add new List</h1>
-  
+
       <div mat-dialog-content>
         <p>Enter New List name</p>
         <mat-form-field class="field">
@@ -21,23 +21,23 @@ import { DialogData } from "../models/models";
         </mat-form-field>
       </div>
     </div>
-  
+
     <ng-template #bookForm>
       <h1 mat-dialog-title>Add new Book to {{data.listName}}</h1>
-  
+
       <div mat-dialog-content>
         <p>Enter Book Title</p>
         <mat-form-field class="field">
           <mat-label>Title</mat-label>
           <input matInput [(ngModel)]="data.bookTitle">
         </mat-form-field>
-  
+
         <p>Enter Book Year</p>
         <mat-form-field class="field">
           <mat-label>Year</mat-label>
           <input matInput [(ngModel)]="data.year">
         </mat-form-field>
-  
+
         <p>Enter Book Author</p>
         <mat-form-field class="field">
           <mat-label>Author</mat-label>
@@ -45,7 +45,7 @@ import { DialogData } from "../models/models";
         </mat-form-field>
       </div>
     </ng-template>
-  
+
     <div mat-dialog-actions>
       <button mat-button (click)="cancel()">Cancel</button>
       <button mat-button disabled="{{(data.isList)? (!data.listName) : (!data.bookTitle || !data.year || !data.authorName)}}" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
@@ -64,7 +64,7 @@ import { DialogData } from "../models/models";
   ],
     standalone: true,
     imports: [
-      MatFormFieldModule, 
+      MatFormFieldModule,
       MatInputModule,
       MatButtonModule,
       MatInputModule,
@@ -73,13 +73,13 @@ import { DialogData } from "../models/models";
       CommonModule,
     ],
   })
-  export class Dialog {
+  export class Dialog{
     constructor(
       public dialogRef: MatDialogRef<Dialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    ) {}
-  
-    cancel(): void {
+    ){}
+
+    cancel(): void{
       this.dialogRef.close();
     }
   }
